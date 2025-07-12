@@ -62,7 +62,15 @@ const ContactForm = () => {
     if (!formData.rideTo) formErrors.rideTo = "Drop-off location required";
     if (!formData.time) formErrors.time = "Time is required";
 
-    setErrors(formErrors as any);
+    setErrors({
+      name: formErrors.name ?? "",
+      email: formErrors.email ?? "",
+      phone: formErrors.phone ?? "",
+      message: formErrors.message ?? "",
+      rideFrom: formErrors.rideFrom ?? "",
+      rideTo: formErrors.rideTo ?? "",
+      time: formErrors.time ?? "",
+    });
 
     if (Object.keys(formErrors).length === 0) {
       try {
@@ -87,7 +95,7 @@ const ContactForm = () => {
         } else {
           alert("Something went wrong. Please try again.");
         }
-      } catch (error) {
+      } catch {
         alert("An error occurred. Please try again.");
       }
     }
@@ -155,7 +163,7 @@ const ContactForm = () => {
                   Book Your Ride
                 </h2>
                 <p className="text-gray-600 mt-2">
-                  Fill the form and we'll contact you shortly
+                  {`Fill the form and we'll contact you shortly`}
                 </p>
               </div>
 
@@ -172,9 +180,8 @@ const ContactForm = () => {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="Your name"
-                      className={`w-full border ${
-                        errors.name ? "border-red-500" : "border-gray-300"
-                      } rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
+                      className={`w-full border ${errors.name ? "border-red-500" : "border-gray-300"
+                        } rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
                       required
                     />
                     <FaUser className="absolute left-3 top-3.5 text-gray-400" />
@@ -196,9 +203,8 @@ const ContactForm = () => {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="Your email"
-                      className={`w-full border ${
-                        errors.email ? "border-red-500" : "border-gray-300"
-                      } rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
+                      className={`w-full border ${errors.email ? "border-red-500" : "border-gray-300"
+                        } rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
                       required
                     />
                     <FaEnvelope className="absolute left-3 top-3.5 text-gray-400" />
@@ -220,9 +226,8 @@ const ContactForm = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="Your phone"
-                      className={`w-full border ${
-                        errors.phone ? "border-red-500" : "border-gray-300"
-                      } rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
+                      className={`w-full border ${errors.phone ? "border-red-500" : "border-gray-300"
+                        } rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
                       required
                     />
                     <FaPhone className="absolute left-3 top-3.5 text-gray-400" />
@@ -243,9 +248,8 @@ const ContactForm = () => {
                       name="time"
                       value={formData.time}
                       onChange={handleChange}
-                      className={`w-full border ${
-                        errors.time ? "border-red-500" : "border-gray-300"
-                      } rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
+                      className={`w-full border ${errors.time ? "border-red-500" : "border-gray-300"
+                        } rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
                       required
                     />
                     <FaClock className="absolute left-3 top-3.5 text-gray-400" />
@@ -268,9 +272,8 @@ const ContactForm = () => {
                       value={formData.rideFrom}
                       onChange={handleChange}
                       placeholder="Where should we pick you up?"
-                      className={`w-full border ${
-                        errors.rideFrom ? "border-red-500" : "border-gray-300"
-                      } rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
+                      className={`w-full border ${errors.rideFrom ? "border-red-500" : "border-gray-300"
+                        } rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
                       required
                     />
                     <FaMapMarkerAlt className="absolute left-3 top-3.5 text-gray-400" />
@@ -295,9 +298,8 @@ const ContactForm = () => {
                       value={formData.rideTo}
                       onChange={handleChange}
                       placeholder="Where are you going?"
-                      className={`w-full border ${
-                        errors.rideTo ? "border-red-500" : "border-gray-300"
-                      } rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
+                      className={`w-full border ${errors.rideTo ? "border-red-500" : "border-gray-300"
+                        } rounded-lg px-4 py-3 pl-10 focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
                       required
                     />
                     <FaMapMarkerAlt className="absolute left-3 top-3.5 text-gray-400" />
@@ -319,9 +321,8 @@ const ContactForm = () => {
                     onChange={handleChange}
                     placeholder="Any special requests?"
                     rows={3}
-                    className={`w-full border ${
-                      errors.message ? "border-red-500" : "border-gray-300"
-                    } rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
+                    className={`w-full border ${errors.message ? "border-red-500" : "border-gray-300"
+                      } rounded-lg px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
                     required
                   ></textarea>
                   {errors.message && (
@@ -378,8 +379,8 @@ const ContactForm = () => {
                 Booking Confirmed!
               </h2>
               <p className="text-gray-600 mb-6">
-                We've received your request and will contact you shortly with
-                the details.
+                {` We've received your request and will contact you shortly with
+                the details.`}
               </p>
               <motion.button
                 onClick={() => setSubmitted(false)}

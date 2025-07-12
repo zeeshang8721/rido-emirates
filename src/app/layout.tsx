@@ -4,6 +4,7 @@ import "./globals.css";
 import Script from "next/script";
 import ClientPixelTracker from "./ClientPixelTrackerWrapper";
 import BookNow from "./Components/Layout/BookNowButton";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,7 +55,7 @@ export default function RootLayout({
         {children}
 
         <noscript>
-          <img
+          <Image
             height="1"
             width="1"
             style={{ display: "none" }}

@@ -48,8 +48,8 @@ const About = () => {
                   <GiRoad className="text-blue-600 text-2xl" />
                 </div>
                 <p className="text-gray-700">
-                  Whether you're traveling for business, leisure, or daily commuting, we ensure a seamless, reliable, 
-                  and pleasant journey every time.
+                 {` Whether you're traveling for business, leisure, or daily commuting, we ensure a seamless, reliable, 
+                  and pleasant journey every time.`}
                 </p>
               </div>
             </div>

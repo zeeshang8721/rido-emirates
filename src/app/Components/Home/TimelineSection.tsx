@@ -56,7 +56,7 @@ const TimelineSection = () => {
             Dubai ↔ Abu Dhabi Car Lift Solutions
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            At Rido Emirates, we offer customized, affordable car lift services tailored for your lifestyle. Whether you're heading one-way or require a round-trip, we’ve got flexible, safe, and seamless solutions to get you there.
+           {` At Rido Emirates, we offer customized, affordable car lift services tailored for your lifestyle. Whether you're heading one-way or require a round-trip, we’ve got flexible, safe, and seamless solutions to get you there.`}
           </p>
         </motion.div>
 
